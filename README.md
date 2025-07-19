@@ -32,7 +32,7 @@ sudo ./check-datacollector.sh
 - Uses color-coded output for better readability
 
 ## 3. Schedule Data Collection
-The `schedule-datacollector.sh` script sets up automatic scheduling for data collection (`run-datacollector.sh` and `stop-datacollector.sh`). Please change line 36-45, enable your desired tools and set the correct capture interface. Unhas use all tools. 
+The `schedule-datacollector.sh` script sets up automatic scheduling for data collection (`run-datacollector.sh` and `stop-datacollector.sh`). **Please change line 36-45, enable your desired tools and set the correct capture interface. Unhas use all tools**. 
 
 ```bash
 sudo chmod +x schedule-datacollector.sh
