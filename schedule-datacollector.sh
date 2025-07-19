@@ -87,6 +87,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Linux date command
 # Convert start time to cron format
 start_minute=$(date -d "$start_time" "+%M")
 start_hour=$(date -d "$start_time" "+%H")
@@ -94,8 +95,14 @@ start_day=$(date -d "$start_time" "+%d")
 start_month=$(date -d "$start_time" "+%m")
 start_day_of_week=$(date -d "$start_time" "+%w")
 
-# Calculate stop time (7 days later by default)
-stop_time=$(date -d "$start_time +$interval days" "+%Y-%m-%d %H:%M:%S")
+# Calculate stop time (interval days later)
+# Fix: Use a more reliable way to add days in GNU date
+# Note: For GNU date in Linux, we construct the expression differently to ensure proper calculation
+parsed_start=$(date -d "$start_time" "+%s")
+seconds_to_add=$((interval * 86400))
+stop_timestamp=$((parsed_start + seconds_to_add))
+stop_time=$(date -d "@$stop_timestamp" "+%Y-%m-%d %H:%M:%S")
+
 stop_minute=$(date -d "$stop_time" "+%M")
 stop_hour=$(date -d "$stop_time" "+%H")
 stop_day=$(date -d "$stop_time" "+%d")
