@@ -56,15 +56,15 @@ if [ -f "$CONFIG_FILE" ]; then
 fi
 
 # Set timezone to GMT+8 (Jakarta)
-print_info "Setting timezone to Asia/Jakarta (GMT+8)..."
+print_info "Setting timezone to Asia/Makassar (GMT+8)..."
 if [ -f /etc/timezone ]; then
     # Debian/Ubuntu
-    sudo timedatectl set-timezone Asia/Jakarta
+    sudo timedatectl set-timezone Asia/Makassar
 elif [ -f /etc/localtime ]; then
     # CentOS/RHEL
-    sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+    sudo ln -sf /usr/share/zoneinfo/Asia/Makassar /etc/localtime
 else
-    print_warning "Could not set timezone automatically. Please set timezone to Asia/Jakarta manually."
+    print_warning "Could not set timezone automatically. Please set timezone to Asia/Makassar manually."
 fi
 
 
